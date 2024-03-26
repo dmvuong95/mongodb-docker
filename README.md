@@ -28,7 +28,7 @@ sudo docker compose up -d
 - Run the following command to initialize the replica set:
   ```bash
   source .env
-  sudo docker compose exec -it master-node mongosh -f /etc/mongo/rs-init.js -u "$MONGO_INITDB_ROOT_USERNAME" -p "$MONGO_INITDB_ROOT_PASSWORD"
+  sudo docker compose exec -it master-node mongo /etc/mongo/rs-init.js -u "$MONGO_INITDB_ROOT_USERNAME" -p "$MONGO_INITDB_ROOT_PASSWORD"
   ```
 
 - Append value of the `$EXPOSED_IP` and `$MONGO_REPLICA_SET_HOST` environments to `/etc/hosts` of docker host machine:

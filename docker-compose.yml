@@ -1,6 +1,6 @@
 services:
   master-node:
-    image: mongo:6.0
+    image: mongo:4.4
     command: --config /etc/mongo/mongod.conf
     hostname: ${MONGO_REPLICA_SET_HOST}
     env_file:
