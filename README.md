@@ -6,6 +6,7 @@
 
 ```bash
 openssl rand -base64 512 > config/keyfile
+chmod 400 config/keyfile
 ```
 
 ## 3. Run MongoDB Server
