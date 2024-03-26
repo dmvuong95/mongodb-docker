@@ -1,0 +1,20 @@
+services:
+  mongo:
+    image: mongo:6.0
+    command: --config /etc/mongo/mongod.conf
+    container_name: my-mongodb-1
+    env_file:
+      - .env
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data:/data/db
+      - ./log:/var/log/mongodb
+      - ./config:/etc/mongo
+    healthcheck:
+      test: cat /etc/mongo/healthcheck.js | mongosh -u $MONGO_INITDB_ROOT_USERNAME -p $MONGO_INITDB_ROOT_PASSWORD
+      interval: 10s
+      timeout: 30s
+      start_period: 0s
+      start_interval: 10s
+      retries: 30
